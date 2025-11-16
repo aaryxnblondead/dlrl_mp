@@ -4,14 +4,31 @@ import Intersection from './Intersection';
 import Training from './Training'; // Import the Training component
 import './Dashboard.css';
 
+const ConfigSlider = ({ label, value, onChange }) => (
+  <div className="config-group">
+    <label>{label}</label>
+    <input
+      type="range"
+      min="0.01"
+      max="0.5"
+      step="0.01"
+      value={value}
+      onChange={e => onChange(parseFloat(e.target.value))}
+    />
+    <span>{value.toFixed(2)}</span>
+  </div>
+);
+
 const Dashboard = () => {
   const [config, setConfig] = useState({
-    north_traffic: 0.3,
-    south_traffic: 0.3,
-    east_traffic: 0.25,
-    west_traffic: 0.25,
-    green_duration: 30,
-    use_rl: true
+    north_left: 0.1, north_straight: 0.2, north_right: 0.1,
+    south_left: 0.1, south_straight: 0.2, south_right: 0.1,
+    east_left: 0.08, east_straight: 0.15, east_right: 0.08,
+    west_left: 0.08, west_straight: 0.15, west_right: 0.08,
+    min_green: 10,
+    yellow_duration: 4,
+    use_rl: true,
+    use_cnn: false,
   });
 
   const [metrics, setMetrics] = useState(null);
@@ -119,69 +136,39 @@ const Dashboard = () => {
         <div className="panel config-panel">
           <h2>Configuration</h2>
 
-          <div className="config-group">
-            <label>North Lane Traffic Density</label>
-            <input
-              type="range"
-              min="0.1"
-              max="0.5"
-              step="0.05"
-              value={config.north_traffic}
-              onChange={e => handleConfigChange('north_traffic', parseFloat(e.target.value))}
-            />
-            <span>{config.north_traffic.toFixed(2)}</span>
+          <div className="config-group-grid">
+            <h3>North Approach</h3>
+            <ConfigSlider label="Left" value={config.north_left} onChange={v => handleConfigChange('north_left', v)} />
+            <ConfigSlider label="Straight" value={config.north_straight} onChange={v => handleConfigChange('north_straight', v)} />
+            <ConfigSlider label="Right" value={config.north_right} onChange={v => handleConfigChange('north_right', v)} />
+          </div>
+          <div className="config-group-grid">
+            <h3>South Approach</h3>
+            <ConfigSlider label="Left" value={config.south_left} onChange={v => handleConfigChange('south_left', v)} />
+            <ConfigSlider label="Straight" value={config.south_straight} onChange={v => handleConfigChange('south_straight', v)} />
+            <ConfigSlider label="Right" value={config.south_right} onChange={v => handleConfigChange('south_right', v)} />
+          </div>
+          <div className="config-group-grid">
+            <h3>East Approach</h3>
+            <ConfigSlider label="Left" value={config.east_left} onChange={v => handleConfigChange('east_left', v)} />
+            <ConfigSlider label="Straight" value={config.east_straight} onChange={v => handleConfigChange('east_straight', v)} />
+            <ConfigSlider label="Right" value={config.east_right} onChange={v => handleConfigChange('east_right', v)} />
+          </div>
+          <div className="config-group-grid">
+            <h3>West Approach</h3>
+            <ConfigSlider label="Left" value={config.west_left} onChange={v => handleConfigChange('west_left', v)} />
+            <ConfigSlider label="Straight" value={config.west_straight} onChange={v => handleConfigChange('west_straight', v)} />
+            <ConfigSlider label="Right" value={config.west_right} onChange={v => handleConfigChange('west_right', v)} />
           </div>
 
           <div className="config-group">
-            <label>South Lane Traffic Density</label>
+            <label>Min Green Time (steps)</label>
             <input
-              type="range"
-              min="0.1"
-              max="0.5"
-              step="0.05"
-              value={config.south_traffic}
-              onChange={e => handleConfigChange('south_traffic', parseFloat(e.target.value))}
+              type="range" min="5" max="30" step="1"
+              value={config.min_green}
+              onChange={e => handleConfigChange('min_green', parseInt(e.target.value))}
             />
-            <span>{config.south_traffic.toFixed(2)}</span>
-          </div>
-
-          <div className="config-group">
-            <label>East Lane Traffic Density</label>
-            <input
-              type="range"
-              min="0.1"
-              max="0.5"
-              step="0.05"
-              value={config.east_traffic}
-              onChange={e => handleConfigChange('east_traffic', parseFloat(e.target.value))}
-            />
-            <span>{config.east_traffic.toFixed(2)}</span>
-          </div>
-
-          <div className="config-group">
-            <label>West Lane Traffic Density</label>
-            <input
-              type="range"
-              min="0.1"
-              max="0.5"
-              step="0.05"
-              value={config.west_traffic}
-              onChange={e => handleConfigChange('west_traffic', parseFloat(e.target.value))}
-            />
-            <span>{config.west_traffic.toFixed(2)}</span>
-          </div>
-
-          <div className="config-group">
-            <label>Green Light Duration (steps)</label>
-            <input
-              type="range"
-              min="10"
-              max="60"
-              step="5"
-              value={config.green_duration}
-              onChange={e => handleConfigChange('green_duration', parseInt(e.target.value))}
-            />
-            <span>{config.green_duration}</span>
+            <span>{config.min_green}</span>
           </div>
 
           <div className="config-group">
@@ -192,6 +179,16 @@ const Dashboard = () => {
                 onChange={e => handleConfigChange('use_rl', e.target.checked)}
               />
               Use RL Agent
+            </label>
+          </div>
+          <div className="config-group">
+            <label>
+              <input
+                type="checkbox"
+                checked={config.use_cnn}
+                onChange={e => handleConfigChange('use_cnn', e.target.checked)}
+              />
+              Use CNN Model
             </label>
           </div>
 
@@ -221,40 +218,24 @@ const Dashboard = () => {
         <div className="panel metrics-panel">
           <h2>Real-time Metrics</h2>
           {metrics && (
-            <div className="metrics-grid">
+            <div className="metrics-grid-condensed">
               <div className="metric-card">
-                <label>Total Queue Length</label>
+                <label>Total Queue</label>
                 <span className="metric-value">{metrics.total_queue_length}</span>
               </div>
               <div className="metric-card">
-                <label>Total Throughput</label>
+                <label>Throughput</label>
                 <span className="metric-value">{metrics.total_throughput}</span>
               </div>
               <div className="metric-card">
-                <label>Current Phase</label>
-                <span className="metric-value">{metrics.current_phase}</span>
+                <label>Phase</label>
+                <span className="metric-value phase-name">{metrics.current_phase_name}</span>
               </div>
               <div className="metric-card">
                 <label>Phase Time</label>
                 <span className="metric-value">{metrics.time_in_phase}s</span>
               </div>
-
-              <div className="metric-card">
-                <label>North Queue</label>
-                <span className="metric-value">{metrics.north.queue_length}</span>
-              </div>
-              <div className="metric-card">
-                <label>South Queue</label>
-                <span className="metric-value">{metrics.south.queue_length}</span>
-              </div>
-              <div className="metric-card">
-                <label>East Queue</label>
-                <span className="metric-value">{metrics.east.queue_length}</span>
-              </div>
-              <div className="metric-card">
-                <label>West Queue</label>
-                <span className="metric-value">{metrics.west.queue_length}</span>
-              </div>
+              {/* Detailed lane metrics can be added here if needed */}
             </div>
           )}
         </div>

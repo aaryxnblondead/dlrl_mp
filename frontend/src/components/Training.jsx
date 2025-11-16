@@ -21,6 +21,11 @@ const Training = () => {
         setProgress(data.progress);
         setTotalConfigs(data.total_configs);
 
+        // Dynamically update results as they come in
+        if (data.results_count > results.length) {
+          fetchResults();
+        }
+
         if (data.status === 'completed') {
           fetchResults();
         }

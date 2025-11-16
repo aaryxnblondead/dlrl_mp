@@ -10,10 +10,11 @@ from dqn_cnn_agent import DoubleDQNAgent
 from config import DQN_CONFIG, MODELS_DIR
 
 class TrainingManager:
-    def __init__(self, parameter_space, episodes_per_config=10, steps_per_episode=500):
+    def __init__(self, parameter_space, episodes_per_config=10, steps_per_episode=500, sample_configs=None):
         self.parameter_space = parameter_space
         self.episodes_per_config = episodes_per_config
         self.steps_per_episode = steps_per_episode
+        self.sample_configs = sample_configs  # If set, randomly sample this many configs instead of exhaustive
         self.results = []
         self.status = "idle"
         self.progress = 0
@@ -32,16 +33,43 @@ class TrainingManager:
     def _run_single_configuration(self, config_id, config):
         """Trains and evaluates the agent for a single configuration."""
         try:
-            arrival_rates = {
-                'north': config['north_traffic'],
-                'south': config['south_traffic'],
-                'east': config['east_traffic'],
-                'west': config['west_traffic']
-            }
+            # Handle both simplified (per-direction) and detailed (per-lane) arrival rates
+            if 'north_left' in config:
+                # Detailed per-lane configuration
+                arrival_rates = {
+                    'north': {
+                        'left': config['north_left'],
+                        'straight': config['north_straight'],
+                        'right': config['north_right']
+                    },
+                    'south': {
+                        'left': config['south_left'],
+                        'straight': config['south_straight'],
+                        'right': config['south_right']
+                    },
+                    'east': {
+                        'left': config['east_left'],
+                        'straight': config['east_straight'],
+                        'right': config['east_right']
+                    },
+                    'west': {
+                        'left': config['west_left'],
+                        'straight': config['west_straight'],
+                        'right': config['west_right']
+                    }
+                }
+            else:
+                # Simplified per-direction configuration (equal rates for all turns)
+                arrival_rates = {
+                    'north': {'left': config['north_traffic'], 'straight': config['north_traffic'], 'right': config['north_traffic']},
+                    'south': {'left': config['south_traffic'], 'straight': config['south_traffic'], 'right': config['south_traffic']},
+                    'east': {'left': config['east_traffic'], 'straight': config['east_traffic'], 'right': config['east_traffic']},
+                    'west': {'left': config['west_traffic'], 'straight': config['west_traffic'], 'right': config['west_traffic']}
+                }
             
             env = TrafficIntersection(
                 arrival_rates=arrival_rates,
-                green_duration=config['green_duration']
+                min_green=config['min_green']
             )
             
             agent = DoubleDQNAgent(num_actions=2, **DQN_CONFIG)
@@ -53,10 +81,15 @@ class TrainingManager:
                 env.reset()
                 state = env.get_grid_observation() if agent.use_cnn else env.get_observation()
                 total_reward = 0
+                episode_metrics_history = []
                 
                 for step in range(self.steps_per_episode):
                     action = agent.act(state)
                     _, reward, done = env.step(action)
+                    
+                    metrics = env.get_metrics()
+                    episode_metrics_history.append(metrics)
+
                     next_state = env.get_grid_observation() if agent.use_cnn else env.get_observation()
                     
                     agent.remember(state, action, reward, next_state, done)
@@ -68,9 +101,11 @@ class TrainingManager:
                     if done:
                         break
                 
-                # The target model is updated within the replay method, so no explicit call is needed here.
                 total_rewards.append(total_reward)
-                avg_queue_lengths.append(np.mean([m['total_queue_length'] for m in env.history]))
+                if episode_metrics_history:
+                    avg_queue_lengths.append(np.mean([m['total_queue_length'] for m in episode_metrics_history]))
+                else:
+                    avg_queue_lengths.append(0)
 
             # After training, evaluate the final performance
             eval_reward = np.mean(total_rewards[-5:])  # Avg reward of last 5 episodes
@@ -104,9 +139,19 @@ class TrainingManager:
             self.results = []
             self.progress = 0
 
-        # Generate all combinations of parameters
+        # Generate parameter combinations
         keys, values = zip(*self.parameter_space.items())
-        param_combinations = [dict(zip(keys, v)) for v in itertools.product(*values)]
+        
+        if self.sample_configs:
+            # Random sampling for large spaces
+            import random
+            param_combinations = []
+            for _ in range(self.sample_configs):
+                config = {key: random.choice(val) for key, val in self.parameter_space.items()}
+                param_combinations.append(config)
+        else:
+            # Exhaustive grid search for smaller spaces
+            param_combinations = [dict(zip(keys, v)) for v in itertools.product(*values)]
         
         with self.lock:
             self.total_configs = len(param_combinations)
@@ -153,8 +198,8 @@ class TrainingManager:
             return self.results
         return []
 
-def start_training_in_background(parameter_space, episodes, steps):
-    manager = TrainingManager(parameter_space, episodes, steps)
+def start_training_in_background(parameter_space, episodes, steps, sample_configs=None):
+    manager = TrainingManager(parameter_space, episodes, steps, sample_configs)
     thread = threading.Thread(target=manager.run_training)
     thread.daemon = True
     thread.start()

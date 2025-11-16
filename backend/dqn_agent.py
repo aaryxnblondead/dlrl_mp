@@ -1,4 +1,4 @@
-# dqn_agent.py
+# backend/dqn_agent.py
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
@@ -9,11 +9,11 @@ from typing import Optional
 
 class DQNNetwork(keras.Model):
     """Deep Q-Network for traffic signal control"""
-    def __init__(self, num_actions: int = 2):
+    def __init__(self, num_actions: int = 5): # Updated num_actions
         super(DQNNetwork, self).__init__()
         
-        # Input: 13 features (4 lanes × 3 features + total_waiting)
-        self.dense1 = layers.Dense(128, activation='relu')
+        # Input: 28 features (12 queues + 12 wait times + 4 phase bits)
+        self.dense1 = layers.Dense(256, activation='relu')
         self.dropout1 = layers.Dropout(0.2)
         self.dense2 = layers.Dense(128, activation='relu')
         self.dropout2 = layers.Dropout(0.2)
@@ -33,14 +33,14 @@ class DQNNetwork(keras.Model):
         return q_values
 
 class DQNAgentWithCNN(keras.Model):
-    """DQN Agent with CNN for grid-based observation"""
-    def __init__(self, num_actions: int = 2):
+    """DQN Agent with CNN for grid-based observation (4x3 grid)"""
+    def __init__(self, num_actions: int = 5): # Updated num_actions
         super(DQNAgentWithCNN, self).__init__()
         
-        # CNN for processing 4x4 grid
-        self.conv1 = layers.Conv2D(32, kernel_size=2, activation='relu', padding='same')
-        self.conv2 = layers.Conv2D(64, kernel_size=2, activation='relu', padding='same')
-        self.pool = layers.GlobalAveragePooling2D()
+        # CNN for processing 4x3 grid (Approaches x Turns)
+        self.conv1 = layers.Conv2D(32, kernel_size=(2, 2), activation='relu', padding='same')
+        self.conv2 = layers.Conv2D(64, kernel_size=(2, 2), activation='relu', padding='same')
+        self.flatten = layers.Flatten()
         
         # Dense layers
         self.dense1 = layers.Dense(128, activation='relu')
@@ -53,14 +53,14 @@ class DQNAgentWithCNN(keras.Model):
     def call(self, grid_state, training=False):
         """Forward pass with grid input"""
         # Add batch and channel dimensions if needed
-        if len(grid_state.shape) == 2:
-            grid_state = tf.expand_dims(grid_state, axis=0)
-        if len(grid_state.shape) == 3:
-            grid_state = tf.expand_dims(grid_state, axis=-1)
+        if len(grid_state.shape) == 2: # (4, 3)
+            grid_state = tf.expand_dims(grid_state, axis=0) # (1, 4, 3)
+        if len(grid_state.shape) == 3: # (batch, 4, 3)
+            grid_state = tf.expand_dims(grid_state, axis=-1) # (batch, 4, 3, 1)
         
         x = self.conv1(grid_state)
         x = self.conv2(x)
-        x = self.pool(x)
+        x = self.flatten(x)
         
         x = self.dense1(x)
         x = self.dropout1(x, training=training)
@@ -72,8 +72,8 @@ class DQNAgentWithCNN(keras.Model):
 class DQNAgent:
     """DQN Agent with experience replay and target network"""
     def __init__(self, 
-                 num_actions: int = 2,
-                 state_size: int = 13,
+                 num_actions: int = 5,      # Updated
+                 state_size: int = 28,      # Updated
                  learning_rate: float = 0.001,
                  gamma: float = 0.99,
                  epsilon_start: float = 1.0,
@@ -101,9 +101,9 @@ class DQNAgent:
         self.use_cnn = use_cnn
         
         # Replay buffer
-        self.memory = deque(maxlen=2000)
-        self.batch_size = 32
-        self.update_frequency = 4  # Update network every 4 steps
+        self.memory = deque(maxlen=10000) # Increased memory
+        self.batch_size = 64 # Increased batch size
+        self.update_frequency = 4
         self.steps = 0
         
         # Networks
@@ -118,8 +118,8 @@ class DQNAgent:
         
         # Build networks
         if use_cnn:
-            self.q_network.build((None, 4, 4, 1))
-            self.target_network.build((None, 4, 4, 1))
+            self.q_network.build((None, 4, 3, 1)) # Updated shape
+            self.target_network.build((None, 4, 3, 1)) # Updated shape
         else:
             self.q_network.build((None, state_size))
             self.target_network.build((None, state_size))
@@ -139,24 +139,19 @@ class DQNAgent:
     def act(self, state: np.ndarray, training: bool = True) -> int:
         """
         Choose action using epsilon-greedy strategy
-        
-        Args:
-            state: Current state
-            training: Whether in training mode (uses exploration)
-        
-        Returns:
-            Action index
         """
         if training and np.random.random() < self.epsilon:
             return random.randint(0, self.num_actions - 1)
         
         # Predict Q-values
         if self.use_cnn:
+            # Shape is already (4,3) from env, needs batch and channel
             if len(state.shape) == 2:
-                state = state[np.newaxis, :, :, np.newaxis]
-            else:
-                state = state[np.newaxis, :]
+                state = state[np.newaxis, :, :, np.newaxis] # (1, 4, 3, 1)
+            elif len(state.shape) == 3: # (4, 3, 1)
+                 state = state[np.newaxis, :, :, :] # (1, 4, 3, 1)
         else:
+            # Shape is already (28,), needs batch
             state = state[np.newaxis, :]
         
         q_values = self.q_network(state, training=False)
@@ -165,9 +160,6 @@ class DQNAgent:
     def replay(self, batch_size: Optional[int] = None) -> float:
         """
         Experience replay - train on batch of experiences
-        
-        Returns:
-            Loss value
         """
         if batch_size is None:
             batch_size = self.batch_size
@@ -185,13 +177,14 @@ class DQNAgent:
         
         # Prepare states for network
         if self.use_cnn:
+            # states are (batch, 4, 3), need to add channel dim
             if len(states.shape) == 3:
                 states = states[:, :, :, np.newaxis]
                 next_states = next_states[:, :, :, np.newaxis]
         
         # Compute target Q-values using target network
-        target_q_values = self.target_network(next_states, training=False).numpy()
-        target_q_values = rewards + self.gamma * np.max(target_q_values, axis=1) * (1 - dones)
+        target_q_values_next = self.target_network(next_states, training=False).numpy()
+        target_q_values = rewards + self.gamma * np.max(target_q_values_next, axis=1) * (1 - dones)
         
         # Train main network
         with tf.GradientTape() as tape:
@@ -203,15 +196,10 @@ class DQNAgent:
             
             # Compute loss
             loss = keras.losses.MeanSquaredError()(target_q_values, q_values_taken)
-            loss = tf.reduce_mean(loss)
         
         # Backpropagation
         gradients = tape.gradient(loss, self.q_network.trainable_variables)
-        
-        # Filter out None gradients
-        grads_and_vars = [(g, v) for g, v in zip(gradients, self.q_network.trainable_variables) if g is not None]
-        if grads_and_vars:
-            self.optimizer.apply_gradients(grads_and_vars)
+        self.optimizer.apply_gradients(zip(gradients, self.q_network.trainable_variables))
         
         loss_value = float(loss.numpy())
         self.loss_history.append(loss_value)

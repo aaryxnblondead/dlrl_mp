@@ -1,224 +1,223 @@
-# traffic_env.py
+# backend/traffic_env.py
+"""
+Advanced Traffic Intersection Environment
+- 12 lanes (left, straight, right for each of 4 approaches)
+- 8-phase signal system (including protected left turns)
+- Vehicle destinations and realistic turning movements
+"""
 import numpy as np
+import random
 from collections import deque
-from enum import Enum
-from dataclasses import dataclass
-from typing import Tuple, Dict, List, Optional
 
-class SignalPhase(Enum):
-    """Traffic signal phases"""
-    NORTH_SOUTH = 0
-    EAST_WEST = 1
+# Constants
+DIRECTIONS = ['north', 'south', 'east', 'west']
+TURNS = ['left', 'straight', 'right']
+LANE_MAP = {
+    'north': {'left': 0, 'straight': 1, 'right': 2},
+    'south': {'left': 3, 'straight': 4, 'right': 5},
+    'east': {'left': 6, 'straight': 7, 'right': 8},
+    'west': {'left': 9, 'straight': 10, 'right': 11},
+}
+NUM_LANES = 12
 
-@dataclass
-class LaneMetrics:
-    """Metrics for a single lane"""
-    vehicle_count: int
-    queue_length: int
-    avg_wait_time: float
-    throughput: int
+# Signal Phases (NS: North-South, EW: East-West)
+# Green phases are even, yellow are odd
+PHASES = {
+    0: 'NS_STRAIGHT_GREEN',
+    1: 'NS_STRAIGHT_YELLOW',
+    2: 'NS_LEFT_GREEN',
+    3: 'NS_LEFT_YELLOW',
+    4: 'EW_STRAIGHT_GREEN',
+    5: 'EW_STRAIGHT_YELLOW',
+    6: 'EW_LEFT_GREEN',
+    7: 'EW_LEFT_YELLOW',
+}
+NUM_PHASES = len(PHASES)
 
-class TrafficLane:
-    """Simulates a single traffic lane"""
-    def __init__(self, capacity: int = 30, arrival_rate: float = 0.3):
-        self.capacity = capacity
-        self.arrival_rate = arrival_rate
-        self.vehicles = deque()  # (arrival_time, wait_time)
-        self.max_wait = 0
-        self.throughput = 0
-        self.total_wait_time = 0
-        self.vehicles_processed = 0
-        
-    def step(self, is_green: bool, time_step: int):
-        """Simulate one time step in the lane"""
-        # New arrivals
-        if np.random.random() < self.arrival_rate and len(self.vehicles) < self.capacity:
-            self.vehicles.append({'arrival': time_step, 'wait_time': 0})
-        
-        # Update wait times
-        for vehicle in self.vehicles:
-            vehicle['wait_time'] += 1
-        
-        # Process vehicles if light is green
-        if is_green and len(self.vehicles) > 0:
-            vehicle = self.vehicles.popleft()
-            wait = vehicle['wait_time']
-            self.total_wait_time += wait
-            self.max_wait = max(self.max_wait, wait)
-            self.vehicles_processed += 1
-            self.throughput += 1
-        
-        return {
-            'queue_length': len(self.vehicles),
-            'max_wait': self.max_wait if self.vehicles_processed > 0 else 0
-        }
+# Defines which lanes have a green light for each primary phase
+GREEN_PHASE_LANE_MAP = {
+    0: [('north', 'straight'), ('south', 'straight'), ('north', 'right'), ('south', 'right')],
+    2: [('north', 'left'), ('south', 'left')],
+    4: [('east', 'straight'), ('west', 'straight'), ('east', 'right'), ('west', 'right')],
+    6: [('east', 'left'), ('west', 'left')],
+}
+
+class Vehicle:
+    vehicle_id_counter = 0
     
-    def get_metrics(self) -> LaneMetrics:
-        """Get current lane metrics"""
-        avg_wait = self.total_wait_time / max(1, self.vehicles_processed)
-        return LaneMetrics(
-            vehicle_count=len(self.vehicles),
-            queue_length=len(self.vehicles),
-            avg_wait_time=avg_wait,
-            throughput=self.throughput
-        )
-    
-    def reset(self):
-        """Reset lane state"""
-        self.vehicles.clear()
-        self.throughput = 0
-        self.total_wait_time = 0
-        self.vehicles_processed = 0
-        self.max_wait = 0
+    def __init__(self, step_created, destination_turn):
+        self.step_created = step_created
+        self.destination_turn = destination_turn
+        self.id = Vehicle.vehicle_id_counter
+        Vehicle.vehicle_id_counter += 1
 
 class TrafficIntersection:
-    """Simulates a 4-way traffic intersection with 4 lanes"""
-    def __init__(self, 
-                 arrival_rates: Optional[Dict[str, float]] = None,
-                 green_duration: int = 30,
-                 yellow_duration: int = 5):
-        """
-        Args:
-            arrival_rates: Dict with keys 'north', 'south', 'east', 'west'
-            green_duration: Duration of green light in time steps
-            yellow_duration: Duration of yellow light in time steps
-        """
-        self.arrival_rates = arrival_rates or {
-            'north': 0.3, 'south': 0.3, 'east': 0.25, 'west': 0.25
-        }
-        
-        self.lanes = {
-            'north': TrafficLane(arrival_rate=self.arrival_rates['north']),
-            'south': TrafficLane(arrival_rate=self.arrival_rates['south']),
-            'east': TrafficLane(arrival_rate=self.arrival_rates['east']),
-            'west': TrafficLane(arrival_rate=self.arrival_rates['west'])
-        }
-        
-        self.green_duration = green_duration
+    def __init__(self, arrival_rates, min_green=10, yellow_duration=4):
+        self.arrival_rates = arrival_rates
+        self.min_green_duration = min_green
         self.yellow_duration = yellow_duration
-        self.current_phase = SignalPhase.NORTH_SOUTH
+        self.reset()
+
+    def reset(self):
+        """Resets the environment to an initial state."""
+        self.lanes = {direction: {turn: deque() for turn in TURNS} for direction in DIRECTIONS}
+        self.step_count = 0
+        self.total_throughput = 0
+        
+        self.current_phase = 0  # Start with North-South straight
         self.time_in_phase = 0
-        self.current_time = 0
-        self.episode_total_wait = 0
-        self.episode_vehicles_processed = 0
         
-    def get_observation(self) -> np.ndarray:
-        """
-        Get state observation as 4D array: [N, S, E, W]
-        Each dimension: [queue_length, max_wait, phase_time, total_vehicles_waiting]
-        """
-        observation = []
-        total_waiting = 0
-        
-        for direction in ['north', 'south', 'east', 'west']:
-            lane = self.lanes[direction]
-            observation.extend([
-                len(lane.vehicles),  # Queue length
-                lane.max_wait if lane.vehicles_processed > 0 else 0,  # Max wait
-                self.time_in_phase / self.green_duration,  # Normalized phase time
-            ])
-            total_waiting += len(lane.vehicles)
-        
-        observation.append(total_waiting / 120)  # Normalized total waiting
-        
-        return np.array(observation, dtype=np.float32)
-    
-    def get_grid_observation(self) -> np.ndarray:
-        """
-        Get observation as grid representation for CNN processing
-        Shape: (4, 4) representing intersection state
-        """
-        grid = np.zeros((4, 4), dtype=np.float32)
-        
-        # North lane
-        grid[0, 1:3] = min(len(self.lanes['north'].vehicles) / 10, 1.0)
-        # South lane
-        grid[3, 1:3] = min(len(self.lanes['south'].vehicles) / 10, 1.0)
-        # East lane
-        grid[1:3, 3] = min(len(self.lanes['east'].vehicles) / 10, 1.0)
-        # West lane
-        grid[1:3, 0] = min(len(self.lanes['west'].vehicles) / 10, 1.0)
-        
-        # Center represents signal state
-        grid[1:3, 1:3] = 1.0 if self.current_phase == SignalPhase.NORTH_SOUTH else 0.5
-        
-        return grid
-    
-    def step(self, action: int) -> Tuple[np.ndarray, float, bool]:
-        """
-        Execute one time step
-        
-        Args:
-            action: 0 = keep current phase, 1 = switch phase
-        
-        Returns:
-            observation, reward, done
-        """
-        # Handle phase switching
-        if action == 1 and self.time_in_phase >= self.green_duration - self.yellow_duration:
-            self.current_phase = SignalPhase(1 - self.current_phase.value)
-            self.time_in_phase = 0
-        
-        self.time_in_phase += 1
-        
-        # Determine which lanes have green light
-        is_ns_green = (self.current_phase == SignalPhase.NORTH_SOUTH)
-        is_ew_green = (self.current_phase == SignalPhase.EAST_WEST)
-        
-        # Step each lane
-        for direction, is_green in [('north', is_ns_green), ('south', is_ns_green),
-                                    ('east', is_ew_green), ('west', is_ew_green)]:
-            self.lanes[direction].step(is_green, self.current_time)
-        
-        # Calculate reward (minimize total wait time)
-        total_wait = sum(len(lane.vehicles) for lane in self.lanes.values())
-        throughput = sum(lane.throughput for lane in self.lanes.values())
-        
-        # Reward: negative total queue length + positive throughput
-        reward = -total_wait * 0.5 + throughput * 0.1
-        
-        self.episode_total_wait += total_wait
-        self.current_time += 1
-        
-        return self.get_observation(), reward, False
-    
-    def reset(self) -> np.ndarray:
-        """Reset environment"""
-        for lane in self.lanes.values():
-            lane.reset()
-        
-        self.current_phase = SignalPhase.NORTH_SOUTH
-        self.time_in_phase = 0
-        self.current_time = 0
-        self.episode_total_wait = 0
+        # Metrics
+        self.total_wait_time = 0
+        self.vehicles_passed = 0
         
         return self.get_observation()
-    
-    def get_metrics(self) -> Dict:
-        """Get current intersection metrics"""
-        metrics = {}
-        total_wait = 0
-        total_throughput = 0
+
+    def _generate_vehicles(self):
+        """Adds new vehicles to lanes based on arrival rates."""
+        for direction in DIRECTIONS:
+            for turn in TURNS:
+                if random.random() < self.arrival_rates[direction][turn]:
+                    vehicle = Vehicle(self.step_count, turn)
+                    self.lanes[direction][turn].append(vehicle)
+
+    def step(self, action):
+        """
+        Executes one time step in the simulation.
+        Action: 0 (keep), 1 (switch to NS_STRAIGHT), 2 (switch to NS_LEFT), 
+                3 (switch to EW_STRAIGHT), 4 (switch to EW_LEFT)
+        """
+        # 1. Update phase based on action
+        is_yellow_phase = self.current_phase % 2 != 0
         
-        for direction in ['north', 'south', 'east', 'west']:
-            lane_metrics = self.lanes[direction].get_metrics()
-            metrics[direction] = {
-                'queue_length': lane_metrics.queue_length,
-                'avg_wait_time': lane_metrics.avg_wait_time,
-                'throughput': lane_metrics.throughput
-            }
-            total_wait += lane_metrics.queue_length
-            total_throughput += lane_metrics.throughput
+        if is_yellow_phase:
+            # If yellow, must continue until it's over
+            if self.time_in_phase >= self.yellow_duration:
+                # Yellow phase ends, move to the next requested green phase
+                self.current_phase = self.next_green_phase
+                self.time_in_phase = 0
+        else: # Is a green phase
+            # Agent wants to switch and green time is sufficient
+            if action != 0 and self.time_in_phase >= self.min_green_duration:
+                # Action 1-4 maps to green phases 0, 2, 4, 6
+                requested_green_phase = (action - 1) * 2
+                if requested_green_phase != self.current_phase:
+                    # Start transition to yellow
+                    self.current_phase += 1 
+                    self.time_in_phase = 0
+                    self.next_green_phase = requested_green_phase
+
+        # 2. Process vehicle movement
+        self._update_lanes()
+
+        # 3. Add new vehicles
+        self._generate_vehicles()
+
+        # 4. Update counters
+        self.step_count += 1
+        self.time_in_phase += 1
         
-        metrics['total_queue_length'] = total_wait
-        metrics['total_throughput'] = total_throughput
-        metrics['current_phase'] = self.current_phase.name
-        metrics['time_in_phase'] = self.time_in_phase
+        # 5. Calculate reward
+        reward = self._calculate_reward()
         
+        # 6. Get next state
+        observation = self.get_observation()
+        
+        done = self.step_count >= 1000  # End episode after 1000 steps
+        
+        return observation, reward, done
+
+    def _update_lanes(self):
+        """Moves vehicles through the intersection based on the current signal phase."""
+        if self.current_phase not in GREEN_PHASE_LANE_MAP:
+            # No movements during yellow phases
+            return
+
+        vehicles_cleared_this_step = 0
+        
+        # One vehicle can pass per green lane per step
+        for direction, turn in GREEN_PHASE_LANE_MAP[self.current_phase]:
+            if self.lanes[direction][turn]:
+                vehicle = self.lanes[direction][turn].popleft()
+                self.total_wait_time += self.step_count - vehicle.step_created
+                self.vehicles_passed += 1
+                vehicles_cleared_this_step += 1
+        
+        self.total_throughput += vehicles_cleared_this_step
+
+    def _calculate_reward(self):
+        """Calculates the reward for the current state."""
+        # Negative reward for total queue length
+        queue_lengths = [len(self.lanes[d][t]) for d in DIRECTIONS for t in TURNS]
+        total_queue = sum(queue_lengths)
+        
+        # Small penalty for switching phases to encourage efficiency
+        phase_switch_penalty = 5 if self.time_in_phase == 1 and self.current_phase % 2 != 0 else 0
+        
+        return -total_queue - phase_switch_penalty
+
+    def get_observation(self):
+        """
+        Returns the current state of the environment as a feature vector.
+        State vector (28 features):
+        - 12 queue lengths
+        - 12 max wait times
+        - 1-hot encoded current GREEN phase (4 features)
+        """
+        queue_lengths = [len(self.lanes[d][t]) for d in DIRECTIONS for t in TURNS]
+        
+        max_wait_times = []
+        for d in DIRECTIONS:
+            for t in TURNS:
+                if self.lanes[d][t]:
+                    oldest_vehicle_step = self.lanes[d][t][0].step_created
+                    max_wait_times.append(self.step_count - oldest_vehicle_step)
+                else:
+                    max_wait_times.append(0)
+
+        # 1-hot encode the current GREEN phase (0, 2, 4, 6)
+        phase_1_hot = [0, 0, 0, 0]
+        green_phase_index = self.current_phase // 2
+        if not self.current_phase % 2: # It's a green phase
+            phase_1_hot[green_phase_index] = 1
+
+        return np.array(queue_lengths + max_wait_times + phase_1_hot, dtype=np.float32)
+
+    def get_grid_observation(self):
+        """Returns a 4x3 grid representing queue lengths for CNN input."""
+        grid = np.zeros((4, 3))
+        for d_idx, d in enumerate(DIRECTIONS):
+            for t_idx, t in enumerate(TURNS):
+                grid[d_idx, t_idx] = len(self.lanes[d][t])
+        return np.expand_dims(grid, axis=-1) # Add channel dimension
+
+    def get_metrics(self):
+        """Returns a dictionary of current environment metrics."""
+        metrics = {
+            'step': self.step_count,
+            'total_queue_length': sum(len(self.lanes[d][t]) for d in DIRECTIONS for t in TURNS),
+            'total_throughput': self.total_throughput,
+            'current_phase_id': self.current_phase,
+            'current_phase_name': PHASES[self.current_phase],
+            'time_in_phase': self.time_in_phase,
+            'lanes': {}
+        }
+        for d in DIRECTIONS:
+            metrics['lanes'][d] = {}
+            for t in TURNS:
+                metrics['lanes'][d][t] = {
+                    'queue_length': len(self.lanes[d][t]),
+                    'queue': [{'id': v.id, 'step_created': v.step_created, 'destination_turn': v.destination_turn} 
+                             for v in self.lanes[d][t]]
+                }
         return metrics
-    
-    def update_arrival_rates(self, arrival_rates: Dict[str, float]):
-        """Update traffic arrival rates (for user configuration)"""
-        self.arrival_rates = arrival_rates
-        for direction, rate in arrival_rates.items():
-            self.lanes[direction].arrival_rate = rate
+
+    def render(self):
+        """Prints a text-based representation of the intersection."""
+        print(f"--- Step {self.step_count} | Phase: {PHASES[self.current_phase]} ({self.time_in_phase}s) ---")
+        for d in DIRECTIONS:
+            print(f"{d.capitalize()}:")
+            for t in TURNS:
+                queue = len(self.lanes[d][t])
+                print(f"  - {t.capitalize()}: {queue} vehicles")
+        print("-" * 30)

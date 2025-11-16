@@ -8,7 +8,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 2,
@@ -19,7 +19,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 3,
@@ -30,7 +30,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 4,
@@ -41,7 +41,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 5,
@@ -52,7 +52,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 6,
@@ -63,7 +63,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 7,
@@ -74,7 +74,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 8,
@@ -85,7 +85,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 9,
@@ -96,7 +96,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 10,
@@ -107,7 +107,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 11,
@@ -118,7 +118,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 12,
@@ -129,7 +129,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 13,
@@ -140,7 +140,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 14,
@@ -151,7 +151,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 15,
@@ -162,7 +162,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 16,
@@ -173,7 +173,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 17,
@@ -184,7 +184,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 18,
@@ -195,7 +195,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 19,
@@ -206,7 +206,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 20,
@@ -217,7 +217,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 21,
@@ -228,7 +228,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 22,
@@ -239,7 +239,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 23,
@@ -250,7 +250,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 24,
@@ -261,7 +261,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 25,
@@ -272,7 +272,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 26,
@@ -283,7 +283,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 27,
@@ -294,7 +294,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 28,
@@ -305,7 +305,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 29,
@@ -316,7 +316,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 30,
@@ -327,7 +327,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 31,
@@ -338,7 +338,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 32,
@@ -349,7 +349,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 33,
@@ -360,7 +360,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 34,
@@ -371,7 +371,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 35,
@@ -382,7 +382,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 36,
@@ -393,7 +393,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 37,
@@ -404,7 +404,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 38,
@@ -415,7 +415,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 39,
@@ -426,7 +426,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 40,
@@ -437,7 +437,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 41,
@@ -448,7 +448,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 42,
@@ -459,7 +459,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 43,
@@ -470,7 +470,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 44,
@@ -481,7 +481,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 45,
@@ -492,7 +492,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 46,
@@ -503,7 +503,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 47,
@@ -514,7 +514,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 48,
@@ -525,7 +525,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 49,
@@ -536,7 +536,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 50,
@@ -547,7 +547,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 51,
@@ -558,7 +558,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 52,
@@ -569,7 +569,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 53,
@@ -580,7 +580,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 54,
@@ -591,7 +591,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 55,
@@ -602,7 +602,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 56,
@@ -613,7 +613,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 57,
@@ -624,7 +624,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 58,
@@ -635,7 +635,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 59,
@@ -646,7 +646,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 60,
@@ -657,7 +657,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 61,
@@ -668,7 +668,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 62,
@@ -679,7 +679,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 63,
@@ -690,7 +690,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 64,
@@ -701,7 +701,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 65,
@@ -712,7 +712,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 66,
@@ -723,7 +723,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 67,
@@ -734,7 +734,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 68,
@@ -745,7 +745,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 69,
@@ -756,7 +756,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 70,
@@ -767,7 +767,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 71,
@@ -778,7 +778,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 72,
@@ -789,7 +789,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 73,
@@ -800,7 +800,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 74,
@@ -811,7 +811,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 75,
@@ -822,7 +822,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 76,
@@ -833,7 +833,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 77,
@@ -844,7 +844,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 78,
@@ -855,7 +855,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 79,
@@ -866,7 +866,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 80,
@@ -877,7 +877,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 81,
@@ -888,7 +888,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 82,
@@ -899,7 +899,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 83,
@@ -910,7 +910,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 84,
@@ -921,7 +921,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 85,
@@ -932,7 +932,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 86,
@@ -943,7 +943,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 87,
@@ -954,7 +954,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 88,
@@ -965,7 +965,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 89,
@@ -976,7 +976,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 90,
@@ -987,7 +987,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 91,
@@ -998,7 +998,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 92,
@@ -1009,7 +1009,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 93,
@@ -1020,7 +1020,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 94,
@@ -1031,7 +1031,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 95,
@@ -1042,7 +1042,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 96,
@@ -1053,7 +1053,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 97,
@@ -1064,7 +1064,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 98,
@@ -1075,7 +1075,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 99,
@@ -1086,7 +1086,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 100,
@@ -1097,7 +1097,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 101,
@@ -1108,7 +1108,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 102,
@@ -1119,7 +1119,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 103,
@@ -1130,7 +1130,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 104,
@@ -1141,7 +1141,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 105,
@@ -1152,7 +1152,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 106,
@@ -1163,7 +1163,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 107,
@@ -1174,7 +1174,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 108,
@@ -1185,7 +1185,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 109,
@@ -1196,7 +1196,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 110,
@@ -1207,7 +1207,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 111,
@@ -1218,7 +1218,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 112,
@@ -1229,7 +1229,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 113,
@@ -1240,7 +1240,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 114,
@@ -1251,7 +1251,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 115,
@@ -1262,7 +1262,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 116,
@@ -1273,7 +1273,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 117,
@@ -1284,7 +1284,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 118,
@@ -1295,7 +1295,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 119,
@@ -1306,7 +1306,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 120,
@@ -1317,7 +1317,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 121,
@@ -1328,7 +1328,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 122,
@@ -1339,7 +1339,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 123,
@@ -1350,7 +1350,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 124,
@@ -1361,7 +1361,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 125,
@@ -1372,7 +1372,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 126,
@@ -1383,7 +1383,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 127,
@@ -1394,7 +1394,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 128,
@@ -1405,7 +1405,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 129,
@@ -1416,7 +1416,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 130,
@@ -1427,7 +1427,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 131,
@@ -1438,7 +1438,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 132,
@@ -1449,7 +1449,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 133,
@@ -1460,7 +1460,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 134,
@@ -1471,7 +1471,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 135,
@@ -1482,7 +1482,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 136,
@@ -1493,7 +1493,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 137,
@@ -1504,7 +1504,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 138,
@@ -1515,7 +1515,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 139,
@@ -1526,7 +1526,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 140,
@@ -1537,7 +1537,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 141,
@@ -1548,7 +1548,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 142,
@@ -1559,7 +1559,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 143,
@@ -1570,7 +1570,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 144,
@@ -1581,7 +1581,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 145,
@@ -1592,7 +1592,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 146,
@@ -1603,7 +1603,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 147,
@@ -1614,7 +1614,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 148,
@@ -1625,7 +1625,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 149,
@@ -1636,7 +1636,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 150,
@@ -1647,7 +1647,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 151,
@@ -1658,7 +1658,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 152,
@@ -1669,7 +1669,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 153,
@@ -1680,7 +1680,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 154,
@@ -1691,7 +1691,7 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 155,
@@ -1702,7 +1702,7 @@
             "west_traffic": 0.1,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 156,
@@ -1713,7 +1713,7 @@
             "west_traffic": 0.1,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 157,
@@ -1724,7 +1724,7 @@
             "west_traffic": 0.3,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 158,
@@ -1735,7 +1735,7 @@
             "west_traffic": 0.3,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 159,
@@ -1746,7 +1746,7 @@
             "west_traffic": 0.3,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 160,
@@ -1757,7 +1757,7 @@
             "west_traffic": 0.5,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 161,
@@ -1768,7 +1768,7 @@
             "west_traffic": 0.5,
             "green_duration": 30
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 162,
@@ -1779,7 +1779,7 @@
             "west_traffic": 0.5,
             "green_duration": 40
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     },
     {
         "config_id": 163,
@@ -1790,6 +1790,886 @@
             "west_traffic": 0.1,
             "green_duration": 20
         },
-        "error": "'TrafficIntersection' object has no attribute 'history'"
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 164,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 165,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 166,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 167,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 168,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 169,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 170,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 171,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 172,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 173,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 174,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 175,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 176,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 177,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 178,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 179,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 180,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 181,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 182,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 183,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 184,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 185,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 186,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 187,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 188,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 189,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 190,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 191,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 192,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 193,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 194,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 195,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 196,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 197,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 198,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 199,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 200,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 201,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 202,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 203,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 204,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 205,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 206,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 207,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 208,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 209,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 210,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 211,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 212,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 213,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 214,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 215,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 216,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 217,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 218,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 219,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 220,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 221,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 222,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 223,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 224,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 225,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 226,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 227,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 228,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 229,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 230,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 231,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 232,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 233,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 234,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 235,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 236,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 237,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 238,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 239,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 240,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 241,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 242,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
+    },
+    {
+        "config_id": 243,
+        "config": {
+            "north_traffic": 0.5,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "TrafficIntersection.__init__() got an unexpected keyword argument 'green_duration'"
     }
 ]

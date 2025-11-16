@@ -49,38 +49,56 @@ visualizer = TrainingVisualizer()
 
 def initialize_simulation(config: dict):
     """Initialize traffic environment and agent"""
+    # New structure for arrival rates: nested dictionary
     arrival_rates = {
-        'north': config.get('north_traffic', 0.3),
-        'south': config.get('south_traffic', 0.3),
-        'east': config.get('east_traffic', 0.25),
-        'west': config.get('west_traffic', 0.25)
+        'north': {
+            'left': config.get('north_left', 0.1),
+            'straight': config.get('north_straight', 0.2),
+            'right': config.get('north_right', 0.1)
+        },
+        'south': {
+            'left': config.get('south_left', 0.1),
+            'straight': config.get('south_straight', 0.2),
+            'right': config.get('south_right', 0.1)
+        },
+        'east': {
+            'left': config.get('east_left', 0.08),
+            'straight': config.get('east_straight', 0.15),
+            'right': config.get('east_right', 0.08)
+        },
+        'west': {
+            'left': config.get('west_left', 0.08),
+            'straight': config.get('west_straight', 0.15),
+            'right': config.get('west_right', 0.08)
+        }
     }
     
     simulation_state['env'] = TrafficIntersection(
         arrival_rates=arrival_rates,
-        green_duration=config.get('green_duration', 30)
+        min_green=config.get('min_green', 10),
+        yellow_duration=config.get('yellow_duration', 4)
     )
     
     # Initialize agent based on configuration
     use_cnn = config.get('use_cnn', False)
-    use_dueling = config.get('use_dueling', False)
     
-    agent = DoubleDQNAgent(
-        num_actions=2,
+    # The new environment has 5 actions: 0 (keep), 1-4 (switch to a green phase)
+    # The new state size is 28 for MLP, and the grid is 4x3 for CNN
+    agent = DQNAgent(
+        num_actions=5,
+        state_size=28,
         use_cnn=use_cnn,
-        dueling=use_dueling,
         **DQN_CONFIG
     )
     
     simulation_state['agent'] = agent
     simulation_state['use_cnn'] = use_cnn
-    simulation_state['use_dueling'] = use_dueling
     
-    # Try to load pre-trained model
+    # Model loading logic remains the same, but ensure models are compatible
     try:
-        model_files = list(MODELS_DIR.glob('agent_final*.h5'))
+        model_files = list(MODELS_DIR.glob('agent_model_*.h5'))
         if model_files:
-            model_path = model_files[0]
+            model_path = sorted(model_files)[-1] # Load the latest model
             agent.load_model(str(model_path))
             print(f"Loaded model from {model_path}")
     except Exception as e:
@@ -89,8 +107,7 @@ def initialize_simulation(config: dict):
     simulation_state['metrics_history'] = []
     simulation_state['agent_metrics'] = {
         'loss_history': [],
-        'q_value_history': [],
-        'td_error_history': []
+        'reward_history': []
     }
     simulation_state['step'] = 0
     simulation_state['use_rl'] = config.get('use_rl', True)
@@ -154,8 +171,18 @@ def step_simulation():
     if simulation_state['use_rl']:
         action = agent.act(state, training=False)
     else:
-        # Fixed timing: switch at end of green phase
-        action = 0 if env.time_in_phase < env.green_duration - 5 else 1
+        # Fixed timing: cycle through phases with fixed green time
+        # This is a simplified fixed controller for the new 8-phase system
+        green_duration = 15 # Fixed green time for non-RL mode
+        is_green_phase = env.current_phase % 2 == 0
+        
+        if is_green_phase and env.time_in_phase >= green_duration:
+            # Request switch to the next green phase in sequence
+            current_green_phase_idx = env.current_phase // 2
+            next_green_phase_idx = (current_green_phase_idx + 1) % 4
+            action = next_green_phase_idx + 1 # Actions 1-4 map to phases 0,2,4,6
+        else:
+            action = 0 # Keep current phase
     
     # Execute action
     next_state, reward, done = env.step(action)
@@ -208,25 +235,37 @@ def run_episode():
 def get_metrics():
     """Get current metrics"""
     if not simulation_state['metrics_history']:
-        return jsonify({
-            'status': 'error',
-            'message': 'No metrics available'
-        }), 400
-    
+        # If no history, return the initial state of the environment
+        env = simulation_state.get('env')
+        if env:
+            initial_metrics = env.get_metrics()
+            return jsonify({
+                'current': initial_metrics,
+                'averages': {}, # No averages yet
+                'episode': simulation_state['episode'],
+                'step': simulation_state['step']
+            })
+        else:
+            return jsonify({
+                'status': 'error',
+                'message': 'Simulation not initialized'
+            }), 400
+
     latest = simulation_state['metrics_history'][-1]
     
     # Calculate averages over last 50 steps
     recent_metrics = simulation_state['metrics_history'][-50:]
     
+    # Calculate average queue lengths for each lane
+    lanes_avg = {f"{d}_{t}": np.mean([m['lanes'][d][t]['queue_length'] for m in recent_metrics])
+                 for d in ['north', 'south', 'east', 'west'] for t in ['left', 'straight', 'right']}
+
     return jsonify({
         'current': latest,
         'averages': {
             'queue_length': np.mean([m['total_queue_length'] for m in recent_metrics]),
             'throughput': np.mean([m['total_throughput'] for m in recent_metrics]),
-            'north_queue': np.mean([m['north']['queue_length'] for m in recent_metrics]),
-            'south_queue': np.mean([m['south']['queue_length'] for m in recent_metrics]),
-            'east_queue': np.mean([m['east']['queue_length'] for m in recent_metrics]),
-            'west_queue': np.mean([m['west']['queue_length'] for m in recent_metrics])
+            **lanes_avg
         },
         'episode': simulation_state['episode'],
         'step': simulation_state['step']
@@ -239,16 +278,21 @@ def get_history():
     limit = request.args.get('limit', 200, type=int)
     history = simulation_state['metrics_history'][-limit:]
     
+    # New structure for lane data
+    lanes_history = {f"{d}_{t}": [] for d in ['north', 'south', 'east', 'west'] for t in ['left', 'straight', 'right']}
+    
+    for m in history:
+        for d in ['north', 'south', 'east', 'west']:
+            for t in ['left', 'straight', 'right']:
+                lanes_history[f"{d}_{t}"].append(m['lanes'][d][t]['queue_length'])
+
     return jsonify({
         'timestamps': [m['step'] for m in history],
         'queue_lengths': [m['total_queue_length'] for m in history],
         'throughputs': [m['total_throughput'] for m in history],
-        'phases': [m['current_phase'] for m in history],
-        'north_queues': [m['north']['queue_length'] for m in history],
-        'south_queues': [m['south']['queue_length'] for m in history],
-        'east_queues': [m['east']['queue_length'] for m in history],
-        'west_queues': [m['west']['queue_length'] for m in history],
-        'rewards': [m.get('reward', 0) for m in history]
+        'phases': [m['current_phase_name'] for m in history], # Use name for clarity
+        'rewards': [m.get('reward', 0) for m in history],
+        'lanes': lanes_history
     })
 
 
@@ -388,24 +432,58 @@ def start_training():
     if training_manager and training_manager.get_status()['status'] == 'running':
         return jsonify({'status': 'error', 'message': 'Training is already in progress.'}), 400
 
-    # Define the hyperparameter space for the training
-    parameter_space = {
-        'north_traffic': [0.1, 0.3, 0.5],
-        'south_traffic': [0.1, 0.3, 0.5],
-        'east_traffic': [0.1, 0.3, 0.5],
-        'west_traffic': [0.1, 0.3, 0.5],
-        'green_duration': [20, 30, 40]
-    }
+    training_mode = request.json.get('mode', 'quick') if request.json else 'quick'
+    
+    if training_mode == 'comprehensive':
+        # COMPREHENSIVE MODE: All 12 lanes individually configured
+        # Traffic density levels: Low (0.05), Medium-Low (0.15), Medium (0.25), Medium-High (0.35), High (0.5)
+        # This creates diverse scenarios for CNN to learn complex patterns
+        traffic_levels = [0.05, 0.15, 0.25, 0.35, 0.5]
+        parameter_space = {
+            'north_left': traffic_levels,
+            'north_straight': traffic_levels,
+            'north_right': traffic_levels,
+            'south_left': traffic_levels,
+            'south_straight': traffic_levels,
+            'south_right': traffic_levels,
+            'east_left': traffic_levels,
+            'east_straight': traffic_levels,
+            'east_right': traffic_levels,
+            'west_left': traffic_levels,
+            'west_straight': traffic_levels,
+            'west_right': traffic_levels,
+            'min_green': [10, 15, 20, 25, 30]  # Min green signal duration
+        }
+        # Total configurations: 5^13 = 1,220,703,125 (too many!)
+        # We'll use random sampling instead
+    else:
+        # QUICK MODE: Simplified per-direction training (original approach)
+        parameter_space = {
+            'north_traffic': [0.1, 0.3, 0.5],
+            'south_traffic': [0.1, 0.3, 0.5],
+            'east_traffic': [0.1, 0.3, 0.5],
+            'west_traffic': [0.1, 0.3, 0.5],
+            'min_green': [10, 20, 30]
+        }
+        # Total configurations: 3^5 = 243
     
     episodes = request.json.get('episodes', 5) if request.json else 5
     steps = request.json.get('steps', 200) if request.json else 200
-
-    training_manager = start_training_in_background(parameter_space, episodes, steps)
+    
+    # For comprehensive mode, use sampling instead of exhaustive search
+    if training_mode == 'comprehensive':
+        num_samples = request.json.get('num_samples', 1000) if request.json else 1000
+        training_manager = start_training_in_background(parameter_space, episodes, steps, sample_configs=num_samples)
+        total_configs = num_samples
+    else:
+        training_manager = start_training_in_background(parameter_space, episodes, steps)
+        total_configs = 243  # 3^5
     
     return jsonify({
         'status': 'success',
         'message': 'Started background training process.',
-        'total_configurations': training_manager.get_status()['total_configs']
+        'mode': training_mode,
+        'total_configurations': total_configs
     })
 
 @app.route('/api/training/status', methods=['GET'])

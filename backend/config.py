@@ -34,10 +34,7 @@ DQN_CONFIG = {
     'epsilon_start': 1.0,
     'epsilon_end': 0.01,
     'epsilon_decay': 0.995,
-    'memory_size': 2000,
-    'batch_size': 32,
-    'update_frequency': 4,
-    'target_update_frequency': 1000
+    # 'memory_size', 'batch_size', etc. are now hardcoded in the agent
 }
 
 # Training Config
