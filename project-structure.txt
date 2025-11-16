@@ -1,0 +1,51 @@
+traffic-signal-optimizer/
+├── backend/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── app.py
+│   ├── traffic_env.py
+│   ├── dqn_agent.py
+│   ├── dqn_cnn_agent.py
+│   ├── train_agent.py
+│   ├── visualization.py
+│   ├── utils.py
+│   └── models/
+│       └── .gitkeep
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Dashboard.css
+│   │   │   ├── Intersection.jsx
+│   │   │   ├── Intersection.css
+│   │   │   ├── Charts.jsx
+│   │   │   ├── Charts.css
+│   │   │   ├── Controls.jsx
+│   │   │   └── Controls.css
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.js
+│   │   └── index.css
+│   ├── package.json
+│   └── .env
+├── scripts/
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── generate_data.py
+│   └── visualize_training.py
+├── data/
+│   ├── training_logs/
+│   └── .gitkeep
+├── tests/
+│   ├── test_env.py
+│   ├── test_agent.py
+│   └── test_api.py
+├── .gitignore
+├── .env.example
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+└── README.md
