@@ -90,6 +90,54 @@ docker-compose logs -f frontend
 docker-compose down
 ```
 
+## 🧠 Model Training
+
+This project includes a powerful, automated training module that allows the agent to learn optimal traffic control strategies by systematically exploring different traffic scenarios.
+
+### Automated Hyperparameter Tuning
+
+The core of the training process is the **Training Manager**, which runs a comprehensive set of experiments in the background. It automatically iterates through all possible combinations of a predefined hyperparameter space.
+
+The current training space is defined in `backend/app.py` and includes:
+- **Traffic Densities**: `[0.1, 0.3, 0.5]` for each of the North, South, East, and West lanes.
+- **Green Light Durations**: `[20, 30, 40]` steps.
+
+This results in **243 unique configurations** (3x3x3x3x3) that the agent will be trained and evaluated on.
+
+### How to Run the Training
+
+1.  **Start the Backend and Frontend Servers**:
+    ```bash
+    # In one terminal, run the backend
+    python backend/app.py
+
+    # In another terminal, run the frontend
+    cd frontend
+    npm start
+    ```
+
+2.  **Navigate to the Training Panel**:
+    *   Open the web interface at `http://localhost:3000`.
+    *   On the dashboard, you will find the **"Train Agent"** panel.
+
+3.  **Start the Training Process**:
+    *   Click the **"Start Full Training"** button.
+    *   This will trigger the backend to start the automated training process. You can monitor the progress via the real-time progress bar on the dashboard.
+
+### Training Results
+
+Upon completion, the dashboard will display a **"Training Results Document"**. This table provides a detailed report of the outcomes for every configuration tested, including:
+- **Average Reward**: The primary metric for performance. Higher is better.
+- **Average Queue Length**: The average number of waiting vehicles. Lower is better.
+
+The results are automatically sorted by the highest average reward, making it easy to identify the most effective traffic control strategies discovered by the agent. The best-performing configuration is highlighted in green.
+
+### GPU Acceleration
+
+For significantly faster training, the system is designed to leverage an NVIDIA GPU. To enable GPU support, you must have the correct versions of the **NVIDIA drivers, CUDA Toolkit, and cuDNN SDK** installed and configured on your system. TensorFlow will automatically detect and use a compatible GPU.
+
+If you have a compatible GPU but training is slow, it is likely that TensorFlow cannot detect it due to a software version mismatch. Please refer to the official TensorFlow documentation for the specific CUDA and cuDNN versions required for your version of TensorFlow.
+
 ## 📁 Project Structure
 
 ```
