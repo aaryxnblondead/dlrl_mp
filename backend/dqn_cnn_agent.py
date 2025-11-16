@@ -169,7 +169,9 @@ class DoubleDQNAgent:
                  epsilon_end: float = 0.01,
                  epsilon_decay: float = 0.995,
                  memory_size: int = 2000,
-                 batch_size: int = 32):
+                 batch_size: int = 32,
+                 update_frequency: int = 4,
+                 target_update_frequency: int = 1000):
         """
         Args:
             num_actions: Number of possible actions
@@ -182,6 +184,8 @@ class DoubleDQNAgent:
             epsilon_decay: Epsilon decay per episode
             memory_size: Size of replay buffer
             batch_size: Batch size for training
+            update_frequency: How often to run a training step
+            target_update_frequency: How often to update the target network
         """
         self.num_actions = num_actions
         self.use_cnn = use_cnn
@@ -191,8 +195,8 @@ class DoubleDQNAgent:
         self.epsilon_end = epsilon_end
         self.epsilon_decay = epsilon_decay
         self.batch_size = batch_size
-        self.update_frequency = 4
-        self.target_update_frequency = 1000  # Steps between target network updates
+        self.update_frequency = update_frequency
+        self.target_update_frequency = target_update_frequency  # Steps between target network updates
         
         # Replay buffer
         self.memory = deque(maxlen=memory_size)

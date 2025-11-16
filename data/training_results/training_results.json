@@ -1,0 +1,1454 @@
+[
+    {
+        "config_id": 1,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 2,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 3,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 4,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 5,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 6,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 7,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 8,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 9,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 10,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 11,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 12,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 13,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 14,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 15,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 16,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 17,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 18,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 19,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 20,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 21,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 22,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 23,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 24,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 25,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 26,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 27,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 28,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 29,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 30,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 31,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 32,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 33,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 34,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 35,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 36,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 37,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 38,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 39,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 40,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 41,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 42,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 43,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 44,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 45,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 46,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 47,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 48,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 49,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 50,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 51,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 52,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 53,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 54,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 55,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 56,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 57,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 58,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 59,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 60,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 61,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 62,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 63,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 64,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 65,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 66,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 67,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 68,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 69,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 70,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 71,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 72,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 73,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 74,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 75,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 76,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 77,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 78,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 79,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 80,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 81,
+        "config": {
+            "north_traffic": 0.1,
+            "south_traffic": 0.5,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 82,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 83,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 84,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 85,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 86,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 87,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 88,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 89,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 90,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 91,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 92,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 93,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 94,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 95,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 96,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 97,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 98,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 99,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 100,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 101,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 102,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 103,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 104,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 105,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 106,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 107,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 108,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.1,
+            "east_traffic": 0.5,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 109,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 110,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 111,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 112,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 113,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 114,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 115,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 116,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 117,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.1,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 118,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 119,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 120,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 121,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 122,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 123,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 124,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 125,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 126,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.3,
+            "west_traffic": 0.5,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 127,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 128,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 129,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.1,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 130,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 20
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 131,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 30
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    },
+    {
+        "config_id": 132,
+        "config": {
+            "north_traffic": 0.3,
+            "south_traffic": 0.3,
+            "east_traffic": 0.5,
+            "west_traffic": 0.3,
+            "green_duration": 40
+        },
+        "error": "'TrafficIntersection' object has no attribute 'history'"
+    }
+]

@@ -1,6 +1,7 @@
 // frontend/src/components/Dashboard.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Intersection from './Intersection';
+import Training from './Training'; // Import the Training component
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -17,6 +18,7 @@ const Dashboard = () => {
   const [history, setHistory] = useState(null);
   const [running, setRunning] = useState(false);
   const [comparison, setComparison] = useState(null);
+  const stepIntervalRef = useRef(null);
 
   const API_BASE = 'http://localhost:5000/api';
 
@@ -29,6 +31,12 @@ const Dashboard = () => {
       });
       const result = await response.json();
       console.log(result.message);
+      // After initializing, get the initial state
+      const metricsResponse = await fetch(`${API_BASE}/metrics`);
+      if (metricsResponse.ok) {
+        const metricsData = await metricsResponse.json();
+        setMetrics(metricsData.current);
+      }
     } catch (error) {
       console.error('Error initializing:', error);
     }
@@ -37,41 +45,14 @@ const Dashboard = () => {
   const handleStart = async () => {
     await handleInitialize();
     setRunning(true);
-    setMetrics(null);
-    setHistory(null);
+  };
 
-    // Run episode with 500 steps
-    try {
-      const response = await fetch(`${API_BASE}/episode`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ steps: 500 })
-      });
-      const result = await response.json();
-
-      // Get final metrics
-      const metricsResponse = await fetch(`${API_BASE}/metrics`);
-      const metricsData = await metricsResponse.json();
-
-      // Get history
-      const historyResponse = await fetch(`${API_BASE}/history?limit=500`);
-      const historyData = await historyResponse.json();
-
-      setMetrics(metricsData.current);
-      setHistory(historyData);
-
-      // Auto-step
-      if (running) {
-        setTimeout(() => handleStep(), 100);
-      }
-    } catch (error) {
-      console.error('Error running episode:', error);
-    }
-
+  const handleStop = () => {
     setRunning(false);
   };
 
   const handleStep = async () => {
+    if (!running) return;
     try {
       const response = await fetch(`${API_BASE}/step`, {
         method: 'POST'
@@ -79,14 +60,33 @@ const Dashboard = () => {
       const result = await response.json();
       setMetrics(result);
 
-      // Get history
-      const historyResponse = await fetch(`${API_BASE}/history?limit=200`);
-      const historyData = await historyResponse.json();
-      setHistory(historyData);
+      // Optionally update history less frequently
+      if (result.step % 10 === 0) {
+        const historyResponse = await fetch(`${API_BASE}/history?limit=200`);
+        const historyData = await historyResponse.json();
+        setHistory(historyData);
+      }
     } catch (error) {
       console.error('Error stepping:', error);
+      setRunning(false); // Stop on error
     }
   };
+
+  useEffect(() => {
+    if (running) {
+      stepIntervalRef.current = setInterval(handleStep, 200); // Adjust for desired speed
+    } else {
+      if (stepIntervalRef.current) {
+        clearInterval(stepIntervalRef.current);
+      }
+    }
+    return () => {
+      if (stepIntervalRef.current) {
+        clearInterval(stepIntervalRef.current);
+      }
+    };
+  }, [running]);
+
 
   const handleCompare = async () => {
     try {
@@ -196,9 +196,15 @@ const Dashboard = () => {
           </div>
 
           <div className="button-group">
-            <button className="btn btn-primary" onClick={handleStart}>
-              Run Episode
-            </button>
+            {!running ? (
+              <button className="btn btn-primary" onClick={handleStart}>
+                Start Simulation
+              </button>
+            ) : (
+              <button className="btn btn-danger" onClick={handleStop}>
+                Stop Simulation
+              </button>
+            )}
             <button className="btn btn-secondary" onClick={handleCompare}>
               Compare Algorithms
             </button>
@@ -208,7 +214,7 @@ const Dashboard = () => {
         {/* Visualization */}
         <div className="panel visualization-panel">
           <h2>Intersection Simulation</h2>
-          {metrics && <Intersection metrics={metrics} />}
+          <Intersection metrics={metrics} />
         </div>
 
         {/* Metrics Panel */}
@@ -218,36 +224,36 @@ const Dashboard = () => {
             <div className="metrics-grid">
               <div className="metric-card">
                 <label>Total Queue Length</label>
-                <value>{metrics.total_queue_length}</value>
+                <span className="metric-value">{metrics.total_queue_length}</span>
               </div>
               <div className="metric-card">
                 <label>Total Throughput</label>
-                <value>{metrics.total_throughput}</value>
+                <span className="metric-value">{metrics.total_throughput}</span>
               </div>
               <div className="metric-card">
                 <label>Current Phase</label>
-                <value>{metrics.current_phase}</value>
+                <span className="metric-value">{metrics.current_phase}</span>
               </div>
               <div className="metric-card">
                 <label>Phase Time</label>
-                <value>{metrics.time_in_phase}s</value>
+                <span className="metric-value">{metrics.time_in_phase}s</span>
               </div>
 
               <div className="metric-card">
                 <label>North Queue</label>
-                <value>{metrics.north.queue_length}</value>
+                <span className="metric-value">{metrics.north.queue_length}</span>
               </div>
               <div className="metric-card">
                 <label>South Queue</label>
-                <value>{metrics.south.queue_length}</value>
+                <span className="metric-value">{metrics.south.queue_length}</span>
               </div>
               <div className="metric-card">
                 <label>East Queue</label>
-                <value>{metrics.east.queue_length}</value>
+                <span className="metric-value">{metrics.east.queue_length}</span>
               </div>
               <div className="metric-card">
                 <label>West Queue</label>
-                <value>{metrics.west.queue_length}</value>
+                <span className="metric-value">{metrics.west.queue_length}</span>
               </div>
             </div>
           )}
@@ -273,6 +279,11 @@ const Dashboard = () => {
             </div>
           </div>
         )}
+
+        {/* Training Panel */}
+        <div className="panel training-panel-container">
+          <Training />
+        </div>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ DQN_CONFIG = {
     'memory_size': 2000,
     'batch_size': 32,
     'update_frequency': 4,
-    'target_update_frequency': 10
+    'target_update_frequency': 1000
 }
 
 # Training Config

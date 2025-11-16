@@ -10,6 +10,7 @@ from dqn_cnn_agent import DoubleDQNAgent
 from dqn_agent import DQNAgent
 from visualization import TrainingVisualizer
 from config import MODELS_DIR, DEFAULT_CONFIG, DQN_CONFIG
+from training_manager import TrainingManager, start_training_in_background
 import numpy as np
 import json
 from pathlib import Path
@@ -42,6 +43,7 @@ simulation_state = {
     'start_time': None
 }
 
+training_manager = None
 visualizer = TrainingVisualizer()
 
 
@@ -100,6 +102,8 @@ def initialize():
     """Initialize simulation with configuration"""
     try:
         config = request.json
+        if config is None:
+            config = DEFAULT_CONFIG
         initialize_simulation(config)
         
         return jsonify({
@@ -181,7 +185,8 @@ def run_episode():
     }
     
     for _ in range(steps):
-        response = step_simulation()
+        response_tuple = step_simulation()
+        response = app.make_response(response_tuple)
         if response.status_code == 200:
             metrics = response.get_json()
             episode_metrics['steps'].append(metrics)
@@ -373,6 +378,72 @@ def health():
         'status': 'healthy',
         'timestamp': datetime.now().isoformat(),
         'simulation_running': simulation_state['running']
+    })
+
+
+@app.route('/api/training/start', methods=['POST'])
+def start_training():
+    """Start a background training process with a defined parameter space."""
+    global training_manager
+    if training_manager and training_manager.get_status()['status'] == 'running':
+        return jsonify({'status': 'error', 'message': 'Training is already in progress.'}), 400
+
+    # Define the hyperparameter space for the training
+    parameter_space = {
+        'north_traffic': [0.1, 0.3, 0.5],
+        'south_traffic': [0.1, 0.3, 0.5],
+        'east_traffic': [0.1, 0.3, 0.5],
+        'west_traffic': [0.1, 0.3, 0.5],
+        'green_duration': [20, 30, 40]
+    }
+    
+    episodes = request.json.get('episodes', 5) if request.json else 5
+    steps = request.json.get('steps', 200) if request.json else 200
+
+    training_manager = start_training_in_background(parameter_space, episodes, steps)
+    
+    return jsonify({
+        'status': 'success',
+        'message': 'Started background training process.',
+        'total_configurations': training_manager.get_status()['total_configs']
+    })
+
+@app.route('/api/training/status', methods=['GET'])
+def training_status():
+    """Get the status of the current training process."""
+    if not training_manager:
+        return jsonify({'status': 'idle', 'message': 'No training process has been started.'})
+    
+    return jsonify(training_manager.get_status())
+
+@app.route('/api/training/results', methods=['GET'])
+def training_results():
+    """Get the results of the completed training process."""
+    if not training_manager or training_manager.get_status()['status'] != 'completed':
+        return jsonify({'status': 'error', 'message': 'Training is not completed or was not started.'}), 400
+    
+    results = training_manager.load_results()
+    return jsonify({
+        'status': 'success',
+        'results': results
+    })
+
+
+@app.route('/api/', methods=['GET'])
+def api_documentation():
+    """Provide a list of available API endpoints."""
+    endpoints = []
+    for rule in app.url_map.iter_rules():
+        if rule.endpoint != 'static' and rule.methods is not None:
+            methods = ','.join(sorted(rule.methods))
+            endpoints.append({
+                "rule": rule.rule,
+                "methods": methods,
+                "description": app.view_functions[rule.endpoint].__doc__
+            })
+    return jsonify({
+        "message": "Welcome to the Smart Traffic Signal Optimizer API",
+        "endpoints": endpoints
     })
 
 
