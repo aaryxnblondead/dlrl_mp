@@ -1,0 +1,254 @@
+/* frontend/src/components/SignalStatus.css */
+.signal-status-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
+  border-radius: 12px;
+  color: #fff;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.signal-status-container h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.5em;
+  color: #64b5f6;
+  border-bottom: 2px solid #64b5f6;
+  padding-bottom: 10px;
+}
+
+.signal-status-container h3 {
+  margin: 15px 0 10px 0;
+  font-size: 1.1em;
+  color: #90caf9;
+}
+
+.signal-status-container h4 {
+  margin: 10px 0 8px 0;
+  font-size: 0.95em;
+  color: #bbdefb;
+  font-weight: 600;
+}
+
+.status-section {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #64b5f6;
+}
+
+.phase-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(100, 181, 246, 0.15);
+  border-radius: 6px;
+}
+
+.phase-name-large {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #64b5f6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.phase-timer {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #ffd54f;
+  background: rgba(255, 213, 79, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.reasoning-section {
+  border-left-color: #66bb6a;
+}
+
+.reasoning-text {
+  margin: 0;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-size: 0.95em;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid #66bb6a;
+}
+
+.next-action-section {
+  border-left-color: #ffa726;
+}
+
+.next-action-text {
+  margin: 0;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 0.95em;
+  background: rgba(255, 167, 38, 0.15);
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid #ffa726;
+  font-weight: 500;
+}
+
+.lanes-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.direction-group {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lane-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.lane-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.lane-row.green-bg {
+  background: rgba(76, 175, 80, 0.25);
+  border: 1px solid #4caf50;
+}
+
+.lane-row.yellow-bg {
+  background: rgba(255, 193, 7, 0.25);
+  border: 1px solid #ffc107;
+}
+
+.lane-row.red-bg {
+  background: rgba(244, 67, 54, 0.15);
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.lane-label {
+  font-weight: 600;
+  min-width: 100px;
+  font-size: 0.9em;
+}
+
+.signal-indicator {
+  font-size: 1.5em;
+  margin: 0 10px;
+  filter: drop-shadow(0 0 5px currentColor);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.signal-green {
+  color: #4caf50;
+}
+
+.signal-yellow {
+  color: #ffc107;
+  animation: blink 0.5s ease-in-out infinite;
+}
+
+.signal-red {
+  color: #f44336;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.queue-count {
+  font-size: 0.9em;
+  color: #e0e0e0;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 10px;
+  border-radius: 12px;
+  min-width: 90px;
+  text-align: center;
+}
+
+.pressure-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pressure-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pressure-item label {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #bbdefb;
+}
+
+.pressure-bar-container {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pressure-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+
+.ns-bar {
+  background: linear-gradient(90deg, #42a5f5, #1e88e5);
+  box-shadow: 0 0 10px rgba(66, 165, 245, 0.6);
+}
+
+.ew-bar {
+  background: linear-gradient(90deg, #66bb6a, #43a047);
+  box-shadow: 0 0 10px rgba(102, 187, 106, 0.6);
+}
+
+.pressure-value {
+  font-size: 0.85em;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+/* Scrollbar styling */
+.signal-status-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.signal-status-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.signal-status-container::-webkit-scrollbar-thumb {
+  background: rgba(100, 181, 246, 0.5);
+  border-radius: 10px;
+}
+
+.signal-status-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 181, 246, 0.8);
+}

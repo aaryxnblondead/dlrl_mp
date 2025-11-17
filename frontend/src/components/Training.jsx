@@ -21,11 +21,7 @@ const Training = () => {
         setProgress(data.progress);
         setTotalConfigs(data.total_configs);
 
-        // Dynamically update results as they come in
-        if (data.results_count > results.length) {
-          fetchResults();
-        }
-
+        // Only fetch results when training is completed
         if (data.status === 'completed') {
           fetchResults();
         }
@@ -43,13 +39,20 @@ const Training = () => {
       const data = await response.json();
       if (response.ok) {
         // Sort results by average reward, descending
-        const sortedResults = data.results.sort((a, b) => b.avg_reward - a.avg_reward);
+        const sortedResults = data.results.sort((a, b) => (b.avg_reward || -Infinity) - (a.avg_reward || -Infinity));
         setResults(sortedResults);
+        setError(null); // Clear any previous errors
       } else {
-        setError(data.message || 'Failed to fetch results.');
+        // Don't show error if training just hasn't been started yet
+        if (status !== 'idle') {
+          setError(data.message || 'Failed to fetch results.');
+        }
       }
     } catch (err) {
-      setError('Error fetching results.');
+      // Only show error if we're actually running/completed
+      if (status !== 'idle') {
+        setError('Error fetching results.');
+      }
     }
   };
 
@@ -57,9 +60,12 @@ const Training = () => {
     let interval;
     if (status === 'running') {
       interval = setInterval(pollStatus, 2000); // Poll every 2 seconds
-    } else {
-      // Initial load
+    } else if (status === 'idle') {
+      // Initial load - just check status, don't fetch results
       pollStatus();
+    } else if (status === 'completed') {
+      // When completed, fetch results once
+      fetchResults();
     }
     return () => clearInterval(interval);
   }, [status]);
@@ -103,6 +109,10 @@ const Training = () => {
 
   const renderResultsTable = () => {
     if (results.length === 0) return null;
+    
+    // Check if using comprehensive mode (has per-lane configs) or quick mode (has per-direction configs)
+    const isComprehensive = results.length > 0 && results[0].config && 'north_left' in results[0].config;
+    
     return (
       <div className="results-container">
         <h3>Training Results Document</h3>
@@ -113,30 +123,68 @@ const Training = () => {
               <th>Rank</th>
               <th>Avg Reward</th>
               <th>Avg Queue</th>
-              <th>N Traffic</th>
-              <th>S Traffic</th>
-              <th>E Traffic</th>
-              <th>W Traffic</th>
-              <th>Green Time</th>
+              {isComprehensive ? (
+                <>
+                  <th>N-L</th>
+                  <th>N-S</th>
+                  <th>N-R</th>
+                  <th>S-L</th>
+                  <th>S-S</th>
+                  <th>S-R</th>
+                  <th>E-L</th>
+                  <th>E-S</th>
+                  <th>E-R</th>
+                  <th>W-L</th>
+                  <th>W-S</th>
+                  <th>W-R</th>
+                </>
+              ) : (
+                <>
+                  <th>N Traffic</th>
+                  <th>S Traffic</th>
+                  <th>E Traffic</th>
+                  <th>W Traffic</th>
+                </>
+              )}
+              <th>Min Green</th>
             </tr>
           </thead>
           <tbody>
             {results.map((res, index) => (
-              <tr key={res.config_id} className={res.error ? 'error-result' : (index === 0 ? 'best-result' : '')}>
+              <tr key={res.config_id || index} className={res.error ? 'error-result' : (index === 0 ? 'best-result' : '')}>
                 <td>{index + 1}</td>
                 {res.error ? (
-                  <td colSpan="2">Error: {res.error}</td>
+                  <td colSpan={isComprehensive ? 14 : 6}>Error: {res.error}</td>
                 ) : (
                   <>
                     <td>{res.avg_reward.toFixed(2)}</td>
                     <td>{res.avg_queue_length.toFixed(2)}</td>
+                    {isComprehensive ? (
+                      <>
+                        <td>{res.config.north_left}</td>
+                        <td>{res.config.north_straight}</td>
+                        <td>{res.config.north_right}</td>
+                        <td>{res.config.south_left}</td>
+                        <td>{res.config.south_straight}</td>
+                        <td>{res.config.south_right}</td>
+                        <td>{res.config.east_left}</td>
+                        <td>{res.config.east_straight}</td>
+                        <td>{res.config.east_right}</td>
+                        <td>{res.config.west_left}</td>
+                        <td>{res.config.west_straight}</td>
+                        <td>{res.config.west_right}</td>
+                      </>
+                    ) : (
+                      <>
+                        <td>{res.config.north_traffic}</td>
+                        <td>{res.config.south_traffic}</td>
+                        <td>{res.config.east_traffic}</td>
+                        <td>{res.config.west_traffic}</td>
+                      </>
+                    )}
+                    <td>{res.config.min_green}</td>
                   </>
                 )}
-                <td>{res.config.north_traffic}</td>
-                <td>{res.config.south_traffic}</td>
-                <td>{res.config.east_traffic}</td>
-                <td>{res.config.west_traffic}</td>
-                <td>{res.config.green_duration}</td>
               </tr>
             ))}
           </tbody>

@@ -8,77 +8,144 @@ import random
 from typing import Optional
 
 class DQNNetwork(keras.Model):
-    """Deep Q-Network for traffic signal control"""
-    def __init__(self, num_actions: int = 5): # Updated num_actions
+    """Deep Q-Network for traffic signal control - Enhanced Architecture"""
+    def __init__(self, num_actions: int = 5):
         super(DQNNetwork, self).__init__()
         
-        # Input: 28 features (12 queues + 12 wait times + 4 phase bits)
-        self.dense1 = layers.Dense(256, activation='relu')
-        self.dropout1 = layers.Dropout(0.2)
-        self.dense2 = layers.Dense(128, activation='relu')
-        self.dropout2 = layers.Dropout(0.2)
-        self.dense3 = layers.Dense(64, activation='relu')
+        # Deeper network with better capacity for complex traffic patterns
+        self.dense1 = layers.Dense(512, activation='relu', kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.bn1 = layers.BatchNormalization()
+        self.dropout1 = layers.Dropout(0.3)
         
-        # Output layer: Q-values for each action
-        self.q_values = layers.Dense(num_actions)
+        self.dense2 = layers.Dense(256, activation='relu', kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.bn2 = layers.BatchNormalization()
+        self.dropout2 = layers.Dropout(0.3)
+        
+        self.dense3 = layers.Dense(128, activation='relu', kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.bn3 = layers.BatchNormalization()
+        self.dropout3 = layers.Dropout(0.2)
+        
+        self.dense4 = layers.Dense(64, activation='relu')
+        
+        # Dueling DQN architecture - separate value and advantage streams
+        self.value_stream = layers.Dense(32, activation='relu')
+        self.value = layers.Dense(1)
+        
+        self.advantage_stream = layers.Dense(32, activation='relu')
+        self.advantages = layers.Dense(num_actions)
     
     def call(self, state, training=False):
-        """Forward pass"""
+        """Forward pass with Dueling DQN architecture"""
         x = self.dense1(state)
+        x = self.bn1(x, training=training)
         x = self.dropout1(x, training=training)
+        
         x = self.dense2(x)
+        x = self.bn2(x, training=training)
         x = self.dropout2(x, training=training)
+        
         x = self.dense3(x)
-        q_values = self.q_values(x)
+        x = self.bn3(x, training=training)
+        x = self.dropout3(x, training=training)
+        
+        x = self.dense4(x)
+        
+        # Dueling streams
+        value = self.value_stream(x)
+        value = self.value(value)
+        
+        advantages = self.advantage_stream(x)
+        advantages = self.advantages(advantages)
+        
+        # Combine: Q(s,a) = V(s) + (A(s,a) - mean(A(s,a)))
+        q_values = value + (advantages - tf.reduce_mean(advantages, axis=1, keepdims=True))
+        
         return q_values
 
 class DQNAgentWithCNN(keras.Model):
-    """DQN Agent with CNN for grid-based observation (4x3 grid)"""
-    def __init__(self, num_actions: int = 5): # Updated num_actions
+    """DQN Agent with CNN for grid-based observation - Enhanced for Traffic Patterns"""
+    def __init__(self, num_actions: int = 5):
         super(DQNAgentWithCNN, self).__init__()
         
-        # CNN for processing 4x3 grid (Approaches x Turns)
-        self.conv1 = layers.Conv2D(32, kernel_size=(2, 2), activation='relu', padding='same')
-        self.conv2 = layers.Conv2D(64, kernel_size=(2, 2), activation='relu', padding='same')
+        # Multi-scale CNN to capture different traffic patterns
+        # First conv layer - local patterns
+        self.conv1 = layers.Conv2D(64, kernel_size=(2, 2), activation='relu', padding='same',
+                                   kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.bn1 = layers.BatchNormalization()
+        
+        # Second conv layer - broader patterns
+        self.conv2 = layers.Conv2D(128, kernel_size=(2, 2), activation='relu', padding='same',
+                                   kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.bn2 = layers.BatchNormalization()
+        
+        # Third conv layer - full context
+        self.conv3 = layers.Conv2D(256, kernel_size=(3, 2), activation='relu', padding='same',
+                                   kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.bn3 = layers.BatchNormalization()
+        
         self.flatten = layers.Flatten()
         
-        # Dense layers
-        self.dense1 = layers.Dense(128, activation='relu')
-        self.dropout1 = layers.Dropout(0.2)
-        self.dense2 = layers.Dense(64, activation='relu')
+        # Dense layers for decision making
+        self.dense1 = layers.Dense(512, activation='relu', kernel_regularizer=keras.regularizers.l2(0.0001))
+        self.dropout1 = layers.Dropout(0.3)
+        self.dense2 = layers.Dense(256, activation='relu')
+        self.dropout2 = layers.Dropout(0.3)
+        self.dense3 = layers.Dense(128, activation='relu')
         
-        # Q-value output
-        self.q_values = layers.Dense(num_actions)
+        # Dueling DQN for CNN
+        self.value_stream = layers.Dense(64, activation='relu')
+        self.value = layers.Dense(1)
+        
+        self.advantage_stream = layers.Dense(64, activation='relu')
+        self.advantages = layers.Dense(num_actions)
     
     def call(self, grid_state, training=False):
-        """Forward pass with grid input"""
+        """Forward pass with grid input and Dueling architecture"""
         # Add batch and channel dimensions if needed
-        if len(grid_state.shape) == 2: # (4, 3)
-            grid_state = tf.expand_dims(grid_state, axis=0) # (1, 4, 3)
-        if len(grid_state.shape) == 3: # (batch, 4, 3)
-            grid_state = tf.expand_dims(grid_state, axis=-1) # (batch, 4, 3, 1)
+        if len(grid_state.shape) == 2:
+            grid_state = tf.expand_dims(grid_state, axis=0)
+        if len(grid_state.shape) == 3:
+            grid_state = tf.expand_dims(grid_state, axis=-1)
         
         x = self.conv1(grid_state)
+        x = self.bn1(x, training=training)
+        
         x = self.conv2(x)
+        x = self.bn2(x, training=training)
+        
+        x = self.conv3(x)
+        x = self.bn3(x, training=training)
+        
         x = self.flatten(x)
         
         x = self.dense1(x)
         x = self.dropout1(x, training=training)
         x = self.dense2(x)
+        x = self.dropout2(x, training=training)
+        x = self.dense3(x)
         
-        q_values = self.q_values(x)
+        # Dueling streams
+        value = self.value_stream(x)
+        value = self.value(value)
+        
+        advantages = self.advantage_stream(x)
+        advantages = self.advantages(advantages)
+        
+        # Combine: Q(s,a) = V(s) + (A(s,a) - mean(A(s,a)))
+        q_values = value + (advantages - tf.reduce_mean(advantages, axis=1, keepdims=True))
+        
         return q_values
 
 class DQNAgent:
     """DQN Agent with experience replay and target network"""
     def __init__(self, 
-                 num_actions: int = 5,      # Updated
-                 state_size: int = 28,      # Updated
-                 learning_rate: float = 0.001,
-                 gamma: float = 0.99,
+                 num_actions: int = 5,
+                 state_size: int = 44,  # Updated for enhanced state observation
+                 learning_rate: float = 0.0003,  # Lower learning rate for stability
+                 gamma: float = 0.75,  # Lower gamma for immediate queue clearing (prioritize short-term)
                  epsilon_start: float = 1.0,
-                 epsilon_end: float = 0.01,
-                 epsilon_decay: float = 0.995,
+                 epsilon_end: float = 0.05,  # Higher minimum exploration
+                 epsilon_decay: float = 0.9995,  # Slower decay
                  use_cnn: bool = False):
         """
         Args:
@@ -100,11 +167,15 @@ class DQNAgent:
         self.learning_rate = learning_rate
         self.use_cnn = use_cnn
         
-        # Replay buffer
-        self.memory = deque(maxlen=10000) # Increased memory
-        self.batch_size = 64 # Increased batch size
-        self.update_frequency = 4
+        # Enhanced replay buffer
+        self.memory = deque(maxlen=50000)  # Larger memory for more diverse experiences
+        self.batch_size = 128  # Larger batch for stable learning
+        self.update_frequency = 2  # Update more frequently
+        self.target_update_frequency = 500  # Update target network every 500 steps
         self.steps = 0
+        
+        # Prioritized experience replay weights
+        self.priority_scale = 0.6  # How much prioritization to use
         
         # Networks
         if use_cnn:
@@ -182,9 +253,12 @@ class DQNAgent:
                 states = states[:, :, :, np.newaxis]
                 next_states = next_states[:, :, :, np.newaxis]
         
-        # Compute target Q-values using target network
+        # Double DQN: use main network to select action, target network to evaluate
+        q_values_next = self.q_network(next_states, training=False).numpy()
+        best_actions = np.argmax(q_values_next, axis=1)
+        
         target_q_values_next = self.target_network(next_states, training=False).numpy()
-        target_q_values = rewards + self.gamma * np.max(target_q_values_next, axis=1) * (1 - dones)
+        target_q_values = rewards + self.gamma * target_q_values_next[np.arange(batch_size), best_actions] * (1 - dones)
         
         # Train main network
         with tf.GradientTape() as tape:
@@ -194,12 +268,18 @@ class DQNAgent:
             action_masks = tf.one_hot(actions, self.num_actions)
             q_values_taken = tf.reduce_sum(q_values * action_masks, axis=1)
             
-            # Compute loss
-            loss = keras.losses.MeanSquaredError()(target_q_values, q_values_taken)
+            # Huber loss for stability (less sensitive to outliers than MSE)
+            loss = keras.losses.Huber()(target_q_values, q_values_taken)
         
-        # Backpropagation
+        # Backpropagation with gradient clipping
         gradients = tape.gradient(loss, self.q_network.trainable_variables)
-        self.optimizer.apply_gradients(zip(gradients, self.q_network.trainable_variables))
+        clipped_gradients = [tf.clip_by_norm(g, 1.0) for g in gradients]
+        self.optimizer.apply_gradients(zip(clipped_gradients, self.q_network.trainable_variables))
+        
+        # Update target network periodically
+        self.steps += 1
+        if self.steps % self.target_update_frequency == 0:
+            self.update_target_network()
         
         loss_value = float(loss.numpy())
         self.loss_history.append(loss_value)

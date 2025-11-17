@@ -83,10 +83,10 @@ def initialize_simulation(config: dict):
     use_cnn = config.get('use_cnn', False)
     
     # The new environment has 5 actions: 0 (keep), 1-4 (switch to a green phase)
-    # The new state size is 28 for MLP, and the grid is 4x3 for CNN
+    # Enhanced state size is 44 for MLP, and the grid is 4x3 for CNN
     agent = DQNAgent(
         num_actions=5,
-        state_size=28,
+        state_size=44,  # Updated for enhanced observation
         use_cnn=use_cnn,
         **DQN_CONFIG
     )
@@ -334,7 +334,7 @@ def compare_algorithms():
     # Test fixed timing
     env.reset()
     for _ in range(500):
-        action = 0 if env.time_in_phase < env.green_duration - 5 else 1
+        action = 0 if env.time_in_phase < env.min_green_duration - 5 else 1
         _, reward, _ = env.step(action)
         metrics = env.get_metrics()
         metrics['reward'] = reward

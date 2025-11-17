@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Intersection from './Intersection';
 import Training from './Training'; // Import the Training component
+import SignalStatus from './SignalStatus'; // Import the SignalStatus component
 import './Dashboard.css';
 
 const ConfigSlider = ({ label, value, onChange }) => (
@@ -212,6 +213,11 @@ const Dashboard = () => {
         <div className="panel visualization-panel">
           <h2>Intersection Simulation</h2>
           <Intersection metrics={metrics} />
+        </div>
+
+        {/* Signal Status Panel */}
+        <div className="panel signal-status-panel">
+          <SignalStatus metrics={metrics} />
         </div>
 
         {/* Metrics Panel */}

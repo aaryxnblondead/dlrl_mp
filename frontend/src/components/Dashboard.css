@@ -49,16 +49,16 @@
 
 .dashboard-container {
   display: grid;
-  grid-template-columns: 420px 1fr; /* Wider config panel */
-  grid-template-rows: auto 1fr;
-  gap: 25px;
-  max-width: 1920px; /* Support wider screens */
+  grid-template-columns: 320px 1fr 400px; /* Config | Visualization | Signal Status */
+  grid-template-rows: auto auto 1fr;
+  gap: 20px;
+  max-width: 1920px;
   margin: 0 auto;
   grid-template-areas:
-    "config viz"
-    "config metrics"
-    "training training"
-    "compare compare";
+    "config viz signal-status"
+    "metrics viz signal-status"
+    "training training training"
+    "compare compare compare";
 }
 
 .panel {
@@ -111,6 +111,41 @@
 .intersection-canvas {
   border: 2px solid #3498db;
   border-radius: 12px;
+}
+
+.config-panel {
+  grid-area: config;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.visualization-panel {
+  grid-area: viz;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signal-status-panel {
+  grid-area: signal-status;
+  max-height: 800px;
+  overflow-y: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.metrics-panel {
+  grid-area: metrics;
+}
+
+.training-panel-container {
+  grid-area: training;
+}
+
+.comparison-panel {
+  grid-area: compare;
 }
 
 .metric-card {
